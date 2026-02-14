@@ -1,0 +1,79 @@
+{
+    "expo": {
+        "name": "AIEntrevistasPro",
+        "slug": "ai-entrevistas-pro",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "dark",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#050505"
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "com.ai.entrevistaspro",
+            "associatedDomains": [
+                "applinks:aientrevistas.pro"
+            ]
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#050505"
+            },
+            "package": "com.ai.entrevistaspro",
+            "intentFilters": [
+                {
+                    "action": "VIEW",
+                    "autoVerify": true,
+                    "data": [
+                        {
+                            "scheme": "https",
+                            "host": "aientrevistas.pro",
+                            "pathPrefix": "/app"
+                        }
+                    ],
+                    "category": [
+                        "BROWSABLE",
+                        "DEFAULT"
+                    ]
+                }
+            ]
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "plugins": [
+            "expo-router",
+            [
+                "expo-camera",
+                {
+                    "cameraPermission": "Allow AIEntrevistasPro to access your camera for visual feedback.",
+                    "recordAudioPermission": "Allow AIEntrevistasPro to access your microphone for practice sessions."
+                }
+            ],
+            "expo-secure-store",
+            "expo-notifications"
+        ],
+        "scheme": "ai-entrevistas-pro",
+        "updates": {
+            "url": "https://u.expo.dev/YOUR-PROJECT-ID"
+        },
+        "runtimeVersion": {
+            "policy": "appVersion"
+        },
+        "extra": {
+            "eas": {
+                "projectId": "YOUR-PROJECT-ID"
+            },
+            "router": {
+                "origin": false
+            }
+        }
+    }
+}

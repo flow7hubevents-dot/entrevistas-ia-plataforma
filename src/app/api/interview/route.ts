@@ -4,12 +4,12 @@ import { buildInterviewerPrompt } from "@/ai/prompt/interviewerPrompt";
 
 export async function POST(req: Request) {
   try {
-    const { message, moods } = await req.json();
+    const { message, moods, personality } = await req.json();
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-    const prompt = buildInterviewerPrompt(moods) + `
+    const prompt = buildInterviewerPrompt(moods, personality) + `
 CANDIDATO:
 ${message}
 

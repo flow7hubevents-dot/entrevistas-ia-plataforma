@@ -1,8 +1,8 @@
-export function buildInterviewerPrompt(moods: string[]) {
-    return `
-Eres un entrevistador profesional de recursos humanos especializado en entrevistas técnicas y de comportamiento.
+export function buildInterviewerPrompt(moods: string[], personality?: string) {
+  return `
+${personality || "Eres un entrevistador profesional de recursos humanos especializado en entrevistas técnicas y de comportamiento."}
 
-Tu personalidad se define por estos dos estados de ánimo:
+Tu personalidad se define por estos dos estados de ánimo actuales:
 ${moods.join(", ")}
 
 INTERPRETACIÓN DE MOODS:
