@@ -121,15 +121,11 @@ export async function POST(req: Request) {
         const stream = await renderToStream(<EvaluationBlob data={data} />);
 
         // Convert WebStream to Buffer
+        // Convertir WebStream a Buffer en Node.js
         const chunks: Uint8Array[] = [];
-        const reader = stream.getReader();
-
-        while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-            if (value) chunks.push(value);
+        for await (const chunk of stream as any) {
+            chunks.push(chunk);
         }
-
         const buffer = Buffer.concat(chunks);
 
         return new NextResponse(buffer, {
